@@ -1,0 +1,20 @@
+// set here element you would like to extend in your scss properties
+// Eg:
+
+.radius-100 {
+    border-radius: 100%;
+    border: .1rem solid $medium-blue;
+}
+
+.border-bottom {
+    border-bottom: .05rem dotted $medium-blue;
+} 
+
+.myPadAndMarg{
+    padding: .25rem 0!important;
+    margin: .25rem 0!important;
+}
+
+.mediumTransition {
+    transition: 1.5s!important;
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Symfony Starter Pack with user authenticate"/>
+        <meta name="author" content="Simon Chabrier" />
+        <meta name="copyright" content="Simon Chabrier" />
+        <meta property="MyDevTools" content="Symfony starter pack with full user functionnality" />
+
+         <!-- LinkedIn -->
+        {# 
+        <meta name="image" property="og:image" content="https:XXXXXXXX/mypicture.jpg"> 
+        #}
+
+        <!-- Facebook -->
+        {# 
+        <meta property="og:title" content="Mon titre" />
+        <meta property="og:url" content="lien vers l'appli" />
+        <meta property="og:image" content="https:XXXXXXXX/mypicture.jpg" />
+        <meta property="og:description" content="Ma description à ajouter ici...." />
+        <meta property="og:site_name" content="Nom de l'Application" />
+         #}
+
+        <!-- Twitter -->
+        {# 
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@SimsChab" />
+        <meta name="twitter:creator" content="@SimsChab"/>
+        <meta name="twitter:title" content="Nom de l'appli" />
+        <meta name="twitter:description" content="Ma description à ajouter ici" />
+        <!-- Twitter summary card avec image large de 280x150px -->
+        <meta name="twitter:image:src" content="https:XXXXXXXX/mypicture.jpg" /> 
+        #}
+       
+        <!-- App custom CSS -->
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% endblock %}
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+         <!-- Js Boostrap for burger menu and JS dynamics Boostrap elements eg: sliders... -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer></script>   
+       
+        <!-- Fontawesome CDN -->
+        <script src="https://kit.fontawesome.com/115544430d.js" crossorigin="anonymous"></script>
+
+        <!-- Add here google font if needed -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+       
+
+        <!-- App JQuery -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
+
+        <!-- Add My Js -->
+        <script src="{{ asset('assets/js/app.js') }}" defer></script> 
+        
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
+
+        <title>{% block title %}starterPackUser{% endblock %}</title>    
+</head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

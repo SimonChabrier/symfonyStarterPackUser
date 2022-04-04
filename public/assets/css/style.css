@@ -1,0 +1,136 @@
+/*-------------------------------------------------------------------------------------*/
+/*  COLORS														   
+/*-------------------------------------------------------------------------------------*/
+/* set in _colors.scss your colors var */
+/*-------------------------------------------------------------------------------------*/
+/*  RADIUS - PADDING - SPACES...												   
+/*-------------------------------------------------------------------------------------*/
+.radius-100 {
+  border-radius: 100%;
+  border: 0.1rem solid #4087B6;
+}
+
+.border-bottom, h1, h2, h3, h4, h5 {
+  border-bottom: 0.05rem dotted #4087B6;
+}
+
+.myPadAndMarg, h1, h2, h3, h4, h5, p {
+  padding: 0.25rem 0 !important;
+  margin: 0.25rem 0 !important;
+}
+
+.mediumTransition, a:hover, .btn:hover {
+  -webkit-transition: 1.5s !important;
+  transition: 1.5s !important;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  LAYOUT													   
+/*-------------------------------------------------------------------------------------*/
+.card-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  TYPO															   
+/*-------------------------------------------------------------------------------------*/
+html {
+  /* Bootstrap 5 use a default font-size of 16px. So 16px = 1rem in default setup */
+  /* https://getbootstrap.com/docs/5.0/content/typography/ */
+  /* Now we set a root font size to 20px...now it means 20px is equal to 1rem */
+  font-size: 20px;
+}
+
+body {
+  font-family: "Poppins" !important;
+  background-color: #f4f4f4 !important;
+}
+
+h1 {
+  color: #0D5483;
+  font-size: 2rem !important;
+  font-weight: 400 !important;
+}
+
+h2 {
+  color: #666666;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+h3 {
+  color: #666666;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+h4 {
+  color: #B3B3B3;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+h5 {
+  color: #0D5483;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  font-weight: 400 !important;
+}
+
+li {
+  font-size: .8rem;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 0.8rem !important;
+}
+
+a {
+  color: #0D5483;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #4087B6;
+}
+
+span {
+  margin-bottom: 0.25rem !important;
+}
+
+.btn {
+  width: 100%;
+  background-color: #4087B6 !important;
+}
+
+.btn:hover {
+  background-color: #0D5483 !important;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  MEDIA QUERIES													   
+/*-------------------------------------------------------------------------------------*/
+/* Here you have media queries exemples */
+/* XXXSmall devices (phones, 280px and up) */
+/* XXSmall devices (phones, 320px and up) */
+/* XSmall devices (phones, 375px and up) */
+/* Small devices (phones, 414px and up) */
+/* Small devices (phones, 540px and up) */
+/* Medium devices (tablets, 768px and up) */
+/* XL devices (large desktops, 1200px and up) */
+/*# sourceMappingURL=style.css.map */
