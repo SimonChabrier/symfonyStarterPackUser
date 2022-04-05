@@ -1,18 +1,19 @@
 ## Symfony starter pack
 
+This starter pack is made to be ready to work quickly.
+
 Download it and make a composer install.
 
-This starter pack content : 
+It contains the essential elements for the majority of basic projects made with Symfony : 
 
 ### Basics to work quickly :
 
 - Full head & Meta content.
-- Boostrap styles and Js.
-- Boostrap forms declared in twig.yaml 
+- Boostrap 5 styles and Js.
 - Reset Css stylesheet.
 - Simple Sass integration easy to custom.
 - Asset on webpack unactivated.
-- Default Fav Icon.
+- Full public rep with base directories : asssets/css/images/js/+ default favicon.png
 - Default app.js with simple JS Vanilla ApiFecth exemple (Load on home).
 
 ### Symfony Functionnality :
@@ -22,6 +23,7 @@ This starter pack content :
 - User confirmation Email.
 - First Migration. 
 - Main Controller + Main Home.
+- Boostrap 5 forms style declared in twig.yaml 
 
 ### Made with :
 
