@@ -32,6 +32,7 @@ It contains the essential elements for the majority of basic projects made with 
 - First Migration. 
 - Main Controller + Main Home.
 - Boostrap 5 forms style declared in twig.yaml 
+- Locale set on Fr
 
 ### Made with :
 

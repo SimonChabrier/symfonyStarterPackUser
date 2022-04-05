@@ -16,7 +16,8 @@ framework:
             # sync: 'sync://'
 
         routing:
-            Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+            #### Uncomment this line if you use messenger to send your mail
+            #Symfony\Component\Mailer\Messenger\SendEmailMessage: async
             Symfony\Component\Notifier\Message\ChatMessage: async
             Symfony\Component\Notifier\Message\SmsMessage: async
 
