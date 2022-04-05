@@ -3,6 +3,14 @@
 This starter pack is made to be ready to work quickly.
 
 Download it and make a composer install.
+```
+composer install
+```
+
+Make your .env.local and create your database:
+```
+bin/console d:d:c
+```
 
 It contains the essential elements for the majority of basic projects made with Symfony : 
 
