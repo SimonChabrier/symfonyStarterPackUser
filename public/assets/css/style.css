@@ -27,6 +27,10 @@
 /*-------------------------------------------------------------------------------------*/
 /*  LAYOUT													   
 /*-------------------------------------------------------------------------------------*/
+input {
+  margin: 0.5rem 0 !important;
+}
+
 .card-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,6 +119,7 @@ span {
 
 .btn {
   width: 100%;
+  margin: 0.5rem 0 !important;
   background-color: #4087B6 !important;
 }
 
