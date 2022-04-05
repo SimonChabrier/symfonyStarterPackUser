@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -12,18 +13,36 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
-    {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+    public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
+    {   
+        // We create a custom redirection for user on last url visited before login action
+        // Eg: you ask user to be login to add a comment, so you may redirect user on this page
+        // just after loggin and not on main_home.
 
-        // get the login error if there is one
+        // Here, we get the url user comes from.
+        $targetOrigin = $request->headers->get('referer');
+
+        if ($targetOrigin){
+
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig',[
+            'last_username' => $lastUsername,
+            'error' => $error,
+            'custom_redirection' => $targetOrigin,
+            ]);
+            
+        } else {
+ 
+            $error = $authenticationUtils->getLastAuthenticationError();
+            $last_username = $authenticationUtils->getLastUsername();
+            
+            return $this->render('security/login.html.twig', [
+                'last_username' => $last_username,
+                'error' => $error,
+            ]);
+        }    
     }
 
     /**
