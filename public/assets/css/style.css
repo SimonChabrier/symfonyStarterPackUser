@@ -19,6 +19,14 @@
   margin: 0.25rem 0 !important;
 }
 
+.my1remBottomMarg, .container, h1 {
+  margin-bottom: 1rem !important;
+}
+
+.my1remTopMarg, .container {
+  margin-top: 1rem !important;
+}
+
 .mediumTransition, a:hover, .btn:hover {
   -webkit-transition: 1.5s !important;
   transition: 1.5s !important;
@@ -60,6 +68,7 @@ h1 {
   color: #0D5483;
   font-size: 2rem !important;
   font-weight: 400 !important;
+  text-transform: uppercase !important;
 }
 
 h2 {
@@ -115,6 +124,7 @@ span {
 
 .btn {
   width: 100%;
+  margin: 0.5rem 0 !important;
   background-color: #4087B6 !important;
 }
 
