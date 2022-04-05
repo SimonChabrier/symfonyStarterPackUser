@@ -46,7 +46,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //! Add here all you need to after user register if you have personnal properties in your user entity
+            //! Add here all you need to do after user register form submit if you have personnal properties in your user entity
             //! Eg : set slug 
             // $slug = $slugger->slug($newUserName);
             // $user->setSlug((strtolower($slug)));
@@ -73,13 +73,12 @@ class RegistrationController extends AbstractController
             );
            
             // do anything else you need here, like send an email
-            
             //* eg if you need to know new user register personalize this:
             $test_email = (new Email())
-            ->from('amail@ymail.fr')
-            ->to($user->getEmail())
-            ->subject('Subjet')
-            ->text('Message content');
+            ->from('appMail@Appmail.fr')
+            ->to('myDestinationmail@Appmail.fr')
+            ->subject('Sujet')
+            ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...');
             $mailer->send($test_email);
          
             // here are instructions for autologin after registration

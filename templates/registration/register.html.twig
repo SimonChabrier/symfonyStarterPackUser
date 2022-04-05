@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création de compte{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block body %}
 <div class = "container">
@@ -8,6 +8,9 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
+{% if app.user %}
+    <h1>Vous êtes déjà connecté</h1>
+{% else %}
     <h1>Créer un compte utilisateur</h1>
 
     {{ form_start(registrationForm) }}
@@ -20,4 +23,6 @@
         <button type="submit" class="btn">Valider</button>
     {{ form_end(registrationForm) }}
 </div>    
+{% endif %}
+
 {% endblock %}
