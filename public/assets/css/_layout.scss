@@ -1,3 +1,7 @@
+.container {
+    @extend .my1remTopMarg;
+    @extend .my1remBottomMarg;
+}
 .card-group {
     display: flex;
     flex-flow: row wrap;

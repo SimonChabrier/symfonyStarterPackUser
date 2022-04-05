@@ -13,9 +13,11 @@ body {
 h1 { 
     @extend .border-bottom;
     @extend .myPadAndMarg;
+    @extend .my1remBottomMarg;
     color : $dark-blue;
     font-size: 2rem!important;
     font-weight: 400!important;
+    text-transform: uppercase!important;
 } 
 
 h2 {
