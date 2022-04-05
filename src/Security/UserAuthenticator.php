@@ -10,6 +10,8 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
+// add this use for remember me badge + new RememberMeBadge(), in line 44
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\RememberMeBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
@@ -38,7 +40,12 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
             [
+                // add badge for remeberme -> show security.yam for config remember-me options
+                // more infos in french https://www.youtube.com/watch?v=WX_H06gBvAs
+                new RememberMeBadge(),
+                // add csrf token
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
+             
             ]
         );
     }
