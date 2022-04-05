@@ -40,9 +40,10 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
             [
-                // add badge for remeberme -> show security.yam for config remember-me options
-                // more infos in french https://www.youtube.com/watch?v=WX_H06gBvAs
+                // add badge for remeber_me -> show security.yaml for config remember_me options
+                // here short tutoral in french https://www.youtube.com/watch?v=WX_H06gBvAs
                 new RememberMeBadge(),
+               
                 // add csrf token
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
              
@@ -55,14 +56,30 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-        
+
+        // here is custom redirection on last url visited after login.
+        // Eg you ask to be logged for add a comment so you redirect user on the last page visited after login.
+        // set hidden field in login.html.twig
+
+        if($request->get('_target_path')) {
+            return new RedirectResponse($request->get('_target_path'));
+       }
+
+        else {
         // For example:
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
         return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        }
     }
 
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+    }
+    //TODO ici vérifier les modifs
+    
+    public function supports(Request $request): bool
+    {
+        return $request->isMethod('POST') && '/login' === $request->getPathInfo();
     }
 }
