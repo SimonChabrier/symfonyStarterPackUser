@@ -50,7 +50,9 @@ security:
             
             remember_me:
                 secret:   '%kernel.secret%' # required
+                # remember_me cookie lifetime.
                 lifetime: 604800 # 1 week in seconds
+                # activate on all domain
                 path: /
                 # we store the token in database using doctrine.
                 token_provider:
