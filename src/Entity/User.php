@@ -39,6 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="boolean")
+     * this is for e-mail verification status
      */
     private $isVerified = false;
 

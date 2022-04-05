@@ -9,6 +9,14 @@
     <h1>HOME PAGE</h1>
 </div>
 
+<!-- this flash message is displayed after user click on verified email-link  --> 
+{% for message in app.flashes('isVerified') %}
+    <div class="container text-center alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
 <!-- app.js is in assets/js/app.js  --> 
 <!-- Api load content is positioned inside this div Id --> 
 <div class="container">  
