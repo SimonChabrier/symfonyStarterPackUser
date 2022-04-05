@@ -10,6 +10,7 @@
 
 {% if app.user %}
     <h1>Vous êtes déjà connecté</h1>
+    <a class="btn btn-primary" href="{{ path('app_home') }}" role="button">Home</a> 
 {% else %}
     <h1>Créer un compte utilisateur</h1>
 
