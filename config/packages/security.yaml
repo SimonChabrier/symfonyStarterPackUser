@@ -1,7 +1,8 @@
 security:
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
-    # here we let the connected user make a password renewal request. The password will be re-encrypted
+    # here we let the connected user ask for a renew password request when is logginIn 
+    # The password need to be re-encrypted
     # More info :
     # https://symfony.com/doc/5.4/security/passwords.html#reset-password
     password_hashers:
@@ -48,13 +49,14 @@ security:
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
             
+            # This need to be configured in UserAuthenticator.php to add new RememberMeBadge() inside the authenticate method.
             remember_me:
                 secret:   '%kernel.secret%' # required
                 # remember_me cookie lifetime.
                 lifetime: 604800 # 1 week in seconds
-                # activate on all domain
+                # activate remember_me cookie on all domain
                 path: /
-                # we store the token in database using doctrine.
+                # here we store the remeber_me token in database using doctrine.
                 token_provider:
                     doctrine: true
                 # by default, the feature is enabled by checking a
@@ -62,7 +64,6 @@ security:
                 # following line to always enable it.
                 # always_remember_me: true
                 
-
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:

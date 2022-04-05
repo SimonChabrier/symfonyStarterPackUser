@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
-// add this use for remember me badge + new RememberMeBadge(), in line 44
+// add this use for remember me badge + new RememberMeBadge(), in line 45
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\RememberMeBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
@@ -40,9 +40,10 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
             [
-                // add badge for remeberme -> show security.yam for config remember-me options
-                // more infos in french https://www.youtube.com/watch?v=WX_H06gBvAs
+                // add badge for activate remeber_me -> show security.yaml for config remember_me options
+                // here short tutoral in french https://www.youtube.com/watch?v=WX_H06gBvAs
                 new RememberMeBadge(),
+               
                 // add csrf token
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
              
@@ -55,14 +56,21 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-        
-        // For example:
-        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+
+        // here we activate custom redirection on last url visited after login.
+
+        if($request->get('_target_path')) {
+            return new RedirectResponse($request->get('_target_path'));
+       }
+
+        else {
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        }
     }
 
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
+
 }
