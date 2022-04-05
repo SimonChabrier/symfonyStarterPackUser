@@ -11,7 +11,7 @@ It contains the essential elements for the majority of basic projects made with 
 - Full head & Meta content.
 - Boostrap 5 styles and Js.
 - Reset Css stylesheet.
-- Simple Sass integration easy to custom.
+- Sass starter integration easy to custom.
 - Asset on webpack unactivated.
 - Full public rep with base directories : asssets/css/images/js/+ default favicon.png
 - Default app.js with simple JS Vanilla ApiFecth exemple (Load on home).
