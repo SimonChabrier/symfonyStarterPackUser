@@ -15,26 +15,22 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
     {   
-        //get url where user come from.
+        // We create a custom redirection for user on last url visited before login action
+        // Eg: you ask user to be login to add a comment, so you may redirect user on this page
+        // just after loggin and not on main_home.
+
+        // Here, we get the url user comes from.
         $targetOrigin = $request->headers->get('referer');
 
         if ($targetOrigin){
-        // activate redirect user on last url visited before login
-        //  if ($this->getUser()) {
-        //      return $this->redirectToRoute('target_path');
-        //  }
 
-        // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-
 
         return $this->render('security/login.html.twig',[
             'last_username' => $lastUsername,
             'error' => $error,
-            // add target redirect
-            'redirect_user_after_login' => $targetOrigin,
+            'custom_redirection' => $targetOrigin,
             ]);
             
         } else {
@@ -46,7 +42,6 @@ class SecurityController extends AbstractController
                 'last_username' => $last_username,
                 'error' => $error,
             ]);
-
         }    
     }
 

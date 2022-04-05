@@ -57,18 +57,14 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // here is custom redirection on last url visited after login.
-        // Eg you ask to be logged for add a comment so you redirect user on the last page visited after login.
-        // set hidden field in login.html.twig
+        // here we activate custom redirection on last url visited after login.
 
         if($request->get('_target_path')) {
             return new RedirectResponse($request->get('_target_path'));
        }
 
         else {
-        // For example:
-        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
-        return new RedirectResponse($this->urlGenerator->generate('app_home'));
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
         }
     }
 
@@ -76,10 +72,5 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-    //TODO ici vérifier les modifs
-    
-    public function supports(Request $request): bool
-    {
-        return $request->isMethod('POST') && '/login' === $request->getPathInfo();
-    }
+
 }
