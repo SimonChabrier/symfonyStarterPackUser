@@ -34,44 +34,48 @@
         <!-- Twitter summary card avec image large de 280x150px -->
         <meta name="twitter:image:src" content="https:XXXXXXXX/mypicture.jpg" /> 
         #}
-       
-        <!-- App custom CSS -->
+        
+        <!-- Bootstrap CSS & Js -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
+        <!-- Js Boostrap pour gérer les burger menu et les éléments dynamiques JS de Boostrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer></script>   
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        
+        <!-- Fontawesome icons CDN -->
+        <script src="https://kit.fontawesome.com/115544430d.js" crossorigin="anonymous" defer></script>
+
+        <!-- My App custom CSS -->
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         {% endblock %}
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-         <!-- Js Boostrap for burger menu and JS dynamics Boostrap elements eg: sliders... -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer></script>   
-       
-        <!-- Fontawesome CDN -->
-        <script src="https://kit.fontawesome.com/115544430d.js" crossorigin="anonymous"></script>
 
         <!-- Add here google font if needed -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
        
-
-        <!-- App JQuery -->
-       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
+        <!-- Add your specific JQuery if you need -->
+        {# <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script> #}
 
         <!-- Add My Js -->
         <script src="{{ asset('assets/js/app.js') }}" defer></script> 
         
-
-        <!-- favicon -->
+        <!-- Add your favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
         <title>{% block title %}starterPackUser{% endblock %}</title>    
 </head>
-    <body>
+    <body>  
+        {% include 'fragments/_navbar.html.twig' %}
+        {% include 'fragments/_slider.html.twig' %}
+        
+
         {% block body %}{% endblock %}
+        {% include 'fragments/_footer.html.twig' %}
     </body>
 </html>

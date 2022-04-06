@@ -11,7 +11,7 @@
         {% endif %}
 
 {% if app.user %}
-    <h1>Vous êtes déjà connecté {{ app.user.username }}</h1> 
+    <h1>Vous êtes connecté {{ app.user.username }}</h1> 
     <a class="btn btn-primary" href="{{ path('app_logout') }}" role="button">Me déconnecter</a>
 {% else %}
 
@@ -34,7 +34,7 @@
         {% if custom_redirection is defined %}
         <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
         {% else %}
-        {# we do nothing #}
+        {# if no custom_redirection we do nothing #}
         {% endif %}
 
         {# See https://symfony.com/doc/current/security/remember_me.html #}
