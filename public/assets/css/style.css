@@ -112,6 +112,10 @@ p {
   line-height: 1.2rem;
 }
 
+.nav-link {
+  padding-bottom: 0.1rem;
+}
+
 a {
   color: #0D5483;
   text-decoration: none !important;
