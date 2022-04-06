@@ -1,3 +1,5 @@
+// here we toggle display on slider div and change <p> text and toggle <bi> class
+
 $(document).ready(function(){
     $("#sliderToggle").click(function(){
         $("#slider").slideToggle();
