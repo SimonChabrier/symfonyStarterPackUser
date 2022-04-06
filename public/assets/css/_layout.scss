@@ -9,3 +9,10 @@
     gap: 30px;
 }
 
+.myInlineFlex {
+    display: inline-flex;
+    gap: 0.3rem;
+    color: $dark-blue;
+    align-items: center;
+}
+
