@@ -24,6 +24,13 @@
           </ul>
         </li>
 
+        {# <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>  #}
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg">Modal Login</a>
+            {% include 'fragments/_modal_login.html.twig' %} 
+        </li>
+         
+
           {# <li class="nav-item">
             <a class="nav-link" href="#">Add a Link</a>
           </li> #}
