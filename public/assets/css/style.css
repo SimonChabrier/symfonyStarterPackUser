@@ -27,7 +27,7 @@
   margin-top: 1rem !important;
 }
 
-.mediumTransition, a:hover, .btn:hover {
+.mediumTransition, a:hover, .btn:hover, .fab:hover {
   -webkit-transition: 1.5s !important;
   transition: 1.5s !important;
 }
@@ -97,16 +97,19 @@ h5 {
   font-size: 0.9rem !important;
   text-transform: uppercase;
   font-weight: 400 !important;
+  line-height: 1.2rem;
 }
 
 li {
   font-size: .8rem;
   list-style-type: none;
   text-transform: uppercase;
+  line-height: 1.5rem;
 }
 
 p {
   font-size: 0.8rem !important;
+  line-height: 1.2rem;
 }
 
 a {
@@ -120,6 +123,7 @@ a:hover {
 
 span {
   margin-bottom: 0.25rem !important;
+  color: #0D5483;
 }
 
 .btn {
@@ -130,6 +134,14 @@ span {
 
 .btn:hover {
   background-color: #0D5483 !important;
+}
+
+.fab {
+  color: #0D5483 !important;
+}
+
+.fab:hover {
+  color: #4087B6 !important;
 }
 
 /*-------------------------------------------------------------------------------------*/

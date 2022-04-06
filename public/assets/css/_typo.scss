@@ -54,17 +54,20 @@ h5 {
     font-size: .9rem!important;
     text-transform: uppercase;
     font-weight: 400!important;
+    line-height: 1.2rem;
 } 
 
 li { 
     font-size: .8rem;
     list-style-type: none;
     text-transform: uppercase;
+    line-height: 1.5rem;
 }
 
 p {
     @extend .myPadAndMarg;
     font-size: .8rem!important;
+    line-height: 1.2rem;
 }
 
 a {
@@ -79,6 +82,7 @@ a:hover {
 
 span {
     margin-bottom: .25rem!important;
+    color: $dark-blue;
 }
 
 .btn {
@@ -92,6 +96,14 @@ span {
     background-color : $dark-blue!important;
 }
 
+// social icons
+.fab {
+    color: $dark-blue!important;
+}
 
+.fab:hover {
+    @extend .mediumTransition;
+    color: $medium-blue!important;
+}
 
 
