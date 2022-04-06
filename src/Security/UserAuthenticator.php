@@ -41,7 +41,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             new PasswordCredentials($request->request->get('password', '')),
             [
                 // add badge for activate remeber_me -> show security.yaml for config remember_me options
-                // here short tutoral in french https://www.youtube.com/watch?v=WX_H06gBvAs
+                // here short tutorial in french https://www.youtube.com/watch?v=WX_H06gBvAs
                 new RememberMeBadge(),
                
                 // add csrf token

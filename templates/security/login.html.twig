@@ -34,7 +34,7 @@
         {% if custom_redirection is defined %}
         <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
         {% else %}
-        {# we do nothing #}
+        {# if no custom_redirection we do nothing #}
         {% endif %}
 
         {# See https://symfony.com/doc/current/security/remember_me.html #}

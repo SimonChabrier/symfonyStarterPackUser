@@ -4,11 +4,6 @@
 
 {% block body %}
 
-
-<div class="container">
-    <h1>Home Page</h1>
-</div>
-
 <!-- this flash message is displayed after user click on verified email-link  --> 
 {% for message in app.flashes('isVerified') %}
     <div class="container text-center alert alert-success">
@@ -16,6 +11,9 @@
     </div>
 {% endfor %}
 
+<div class="container">
+    <h5>Ex Js Api Fetch in -> front/home.html.twig</h5>
+</div>
 
 <!-- app.js is in assets/js/app.js  --> 
 <!-- Api load content is positioned inside this div Id --> 
