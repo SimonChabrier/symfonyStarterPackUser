@@ -27,7 +27,7 @@
   margin-top: 1rem !important;
 }
 
-.mediumTransition, a:hover, .btn:hover {
+.mediumTransition, a:hover, .btn:hover, .fab:hover {
   -webkit-transition: 1.5s !important;
   transition: 1.5s !important;
 }
@@ -46,7 +46,18 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 15px;
+  gap: 30px;
+}
+
+.myInlineFlex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 0.3rem;
+  color: #0D5483;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*-------------------------------------------------------------------------------------*/
@@ -97,16 +108,23 @@ h5 {
   font-size: 0.9rem !important;
   text-transform: uppercase;
   font-weight: 400 !important;
+  line-height: 1.2rem;
 }
 
 li {
   font-size: .8rem;
   list-style-type: none;
   text-transform: uppercase;
+  line-height: 1.5rem;
 }
 
 p {
   font-size: 0.8rem !important;
+  line-height: 1.2rem;
+}
+
+.nav-link {
+  padding-bottom: .1rem;
 }
 
 a {
@@ -120,6 +138,12 @@ a:hover {
 
 span {
   margin-bottom: 0.25rem !important;
+  color: #0D5483;
+}
+
+.bi {
+  font-size: 1.2rem;
+  color: #0D5483 !important;
 }
 
 .btn {
@@ -130,6 +154,14 @@ span {
 
 .btn:hover {
   background-color: #0D5483 !important;
+}
+
+.fab {
+  color: #0D5483 !important;
+}
+
+.fab:hover {
+  color: #4087B6 !important;
 }
 
 /*-------------------------------------------------------------------------------------*/
