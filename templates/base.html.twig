@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-        <!-- Required meta tags -->
+        <!-- Personalize meta tags as you need -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description" content="Symfony Starter Pack with user authenticate"/>
@@ -10,7 +10,7 @@
         <meta name="copyright" content="Simon Chabrier" />
         <meta property="MyDevTools" content="Symfony starter pack with full user functionnality" />
 
-         <!-- LinkedIn recommends an aspect ratio between 3:1 and 2:3 and images with at least 552 x 368 pixels to avoid cropping
+        <!-- LinkedIn recommends an aspect ratio between 3:1 and 2:3 and images with at least 552 x 368 pixels to avoid cropping
               use the tool : https://www.linkedin.com/post-inspector/ to verify that your image is valid -->
         {# 
         <meta name="image" property="og:image" content="https:mypicture.jpg"> 
@@ -40,7 +40,7 @@
         <!-- Bootstrap CSS & Js -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
-        <!-- Boostrap for burgers, sliders etc... -->
+        <!-- Boostrap for burgers, sliders... -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" defer></script> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" defer></script>   
@@ -50,7 +50,7 @@
         <!-- Fontawesome icons CDN -->
         <script src="https://kit.fontawesome.com/115544430d.js" crossorigin="anonymous" defer></script>
 
-        <!-- My App custom CSS -->
+        <!-- This App custom CSS -->
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -61,18 +61,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
        
-        <!-- Add My Js -->
+        <!-- Add this App Js -->
         <script src="{{ asset('assets/js/app.js') }}" defer></script> 
         <script src="{{ asset('assets/js/slider_toggle.js') }}" defer></script> 
         
-        <!-- Add your favicon -->
+        <!-- Add this App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
         <title>{% block title %}starterPackUser{% endblock %}</title>    
 </head>
     <body>  
+        <!-- include nav bar -->
         {% include 'fragments/_navbar.html.twig' %}
         {% block body %}{% endblock %}
+        <!-- include footer -->
         {% include 'fragments/_footer.html.twig' %}
     </body>
 </html>

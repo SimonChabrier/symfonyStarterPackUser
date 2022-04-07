@@ -46,8 +46,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //! Add here all you need to do after user register form submit if you have personnal properties in your user entity
-            //! Eg : set slug 
+            //* Add here all you need to do after user register form submit if you have personnal properties in your user entity
             // $slug = $slugger->slug($newUserName);
             // $user->setSlug((strtolower($slug)));
 
