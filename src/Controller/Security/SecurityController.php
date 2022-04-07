@@ -21,6 +21,7 @@ class SecurityController extends AbstractController
 
         // Here, we get the url user comes from.
         $targetOrigin = $request->headers->get('referer');
+        dump($targetOrigin);
 
         if ($targetOrigin){
 
@@ -37,7 +38,7 @@ class SecurityController extends AbstractController
  
             $error = $authenticationUtils->getLastAuthenticationError();
             $last_username = $authenticationUtils->getLastUsername();
-            
+
             return $this->render('security/login.html.twig', [
                 'last_username' => $last_username,
                 'error' => $error,

@@ -6,6 +6,7 @@
 {% block body %}
 <div class="container">
     <form method="post">
+    
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -29,9 +30,9 @@
     
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        {# If you want to control the URL the user is redirected to on success #}
-
+        {# If we use static login form page, we redirect the user on last visited page page after login for better UX #}
         {% if custom_redirection is defined %}
+        {{dump(custom_redirection)}}
         <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
         {% else %}
         {# if no custom_redirection we do nothing #}

@@ -1,11 +1,14 @@
 
 {# {% block body %} #}
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
+ 
+
                 <div class="container">
                     <form method="post" action="{{ path('app_login')}}">
+                     
                         {% if error is defined and error %}
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}
@@ -29,10 +32,11 @@
                     
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                        {# If you want to control the URL the user is redirected to on success #}
-
-                        {% if custom_redirection is defined %}
-                        <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
+                        {# https://stackoverflow.com/questions/9378714/get-current-url-in-twig-template #}
+                        {# If we use modal login, we let the user on current page after login for better UX #}
+                        {% set redirect = app.request.uri %}
+                        {% if redirect is defined %}
+                        <input type="hidden" name="_target_path" value="{{ redirect | lower  }}"/> 
                         {% else %}
                         {# if no custom_redirection we do nothing #}
                         {% endif %}
