@@ -26,7 +26,7 @@ bin/console d:m:m
 
 - User Login/logout. (on static page or modal window)
 - Redirect on last page visited after login using static page
-- Stay on current page before login using modal.
+- Stay on current page after login using modal.
 - Active Remember me.
 - User Reset Password.
 - Send confirmation Email.
