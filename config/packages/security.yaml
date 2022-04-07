@@ -29,15 +29,16 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+            
         main:
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\UserAuthenticator
-
+            
             login_throttling:
                 max_attempts: 5
                 interval: '15 minutes'
-
+            
             logout:
                 path: app_logout
                 # where to redirect after logout
