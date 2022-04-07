@@ -13,13 +13,22 @@
             User Features
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ path('app_login') }}">Login</a></li>
+            {% if app.user %}
             <li><a class="dropdown-item" href="{{ path('app_logout') }}">LogOut</a></li>
+            {% else %}
+            <li><a class="dropdown-item" href="{{ path('app_login') }}">Login</a></li>
+            {% endif %}
+            {% if app.user %}
+            {% else %}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ path('app_register') }}">Register</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ path('app_forgot_password_request') }}">Reset Password</a></li>
+            {% endif %}
+            {% if app.user %}
             <li><a class="dropdown-item" href="{{ path('app_forgot_password_request') }}">Renew Password</a></li>
+            {% else %}
+            <li><a class="dropdown-item" href="{{ path('app_forgot_password_request') }}">Reset Password</a></li>
+            {% endif %}
           </ul>
         </li>
         {% if app.user %} <!-- IMPORTANT - here, We must hide the login modal window if the user is already logged in so as not to have an error with the csrf token during a password update request if the user is already logged in. -->
