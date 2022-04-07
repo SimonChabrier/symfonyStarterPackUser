@@ -4,7 +4,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
- 
+        {# On modal login we need to check if error and last_username are defined 
+            so as not to have errors if the user is not yet logged in #}
 
                 <div class="container">
                     <form method="post" action="{{ path('app_login')}}">
