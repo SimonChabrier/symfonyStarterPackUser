@@ -34,7 +34,8 @@ bin/console d:m:m
 - Boostrap 5 forms style declared in twig.yaml
 - Locale set on Fr
 - Mail config for MailTrap in dev env.
-- Code Comments & infos. 
+- Full Code comments & infos. 
+- Command to regenerate a app secret key
 
 ### Basics to work and personalize quickly :
 
