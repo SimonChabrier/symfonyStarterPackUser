@@ -1,6 +1,6 @@
 
 {# {% block body %} #}
-<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade Mylogin-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -19,7 +19,7 @@
                     <a class="btn btn-primary" href="{{ path('app_logout') }}" role="button">Me déconnecter</a>
                 {% else %}
 
-                    <h1>Connection</h1>
+                    <h2>Connection</h2>
 
                     <div class="mb-3">
                         <label for="inputEmail" class = "form-label required">Email</label>
@@ -32,7 +32,7 @@
                     </div>
                     
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
+                        {# app.user / app.request / app.session / app.flashes / app.environment / app.debug / app.token #}
                         {# https://stackoverflow.com/questions/9378714/get-current-url-in-twig-template #}
                         {# If we use modal login, we let the user on current page after login for better UX #}
                         {% set redirect = app.request.uri %}

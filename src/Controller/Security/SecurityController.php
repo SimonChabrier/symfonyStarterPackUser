@@ -21,7 +21,6 @@ class SecurityController extends AbstractController
 
         // Here, we get the url user comes from.
         $targetOrigin = $request->headers->get('referer');
-        dump($targetOrigin);
 
         if ($targetOrigin){
 
