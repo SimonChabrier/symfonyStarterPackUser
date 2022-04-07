@@ -30,7 +30,7 @@
     
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        {# If we use static login form page, we redirect the user on last visited page page after login for better UX #}
+        {# If we use static login form page, we redirect the user on previous visited page after login for better UX #}
         {% if custom_redirection is defined %}
         {{dump(custom_redirection)}}
         <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
