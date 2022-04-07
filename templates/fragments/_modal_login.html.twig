@@ -1,0 +1,59 @@
+
+{# {% block body %} #}
+<div class="modal fade Mylogin-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        {# On modal login we need to check if error and last_username are defined 
+            so as not to have errors if the user is not yet logged in #}
+
+                <div class="container">
+                    <form method="post" action="{{ path('app_login')}}">
+                     
+                        {% if error is defined and error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                {% if app.user %}
+                    <h5>Vous êtes connecté {{ app.user.username }}</h5> 
+                    <a class="btn btn-primary" href="{{ path('app_logout') }}" role="button">Me déconnecter</a>
+                {% else %}
+
+                    <h2>Connection</h2>
+
+                    <div class="mb-3">
+                        <label for="inputEmail" class = "form-label required">Email</label>
+                        <input type="email" {% if last_username is defined %} value="{{ last_username }}" {% endif %} name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    </div>
+
+                    <div class="mb-3">    
+                        <label for="inputPassword" class = "form-label required">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>
+                    
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        {# app.user / app.request / app.session / app.flashes / app.environment / app.debug / app.token #}
+                        {# https://stackoverflow.com/questions/9378714/get-current-url-in-twig-template #}
+                        {# If we use modal login, we let the user on current page after login for better UX #}
+                        {% set redirect = app.request.uri %}
+                        {% if redirect is defined %}
+                        <input type="hidden" name="_target_path" value="{{ redirect | lower  }}"/> 
+                        {% else %}
+                        {# if no custom_redirection we do nothing #}
+                        {% endif %}
+
+                        {# See https://symfony.com/doc/current/security/remember_me.html #}
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                                </label>
+                            </div>
+                        
+                        <button class="btn btn-lg btn-primary" type="submit">Valider</button>
+                    </form>
+                </div>  
+                {% endif %}
+    </div>
+  </div>
+</div>
+{# {% endblock %} #}
