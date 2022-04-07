@@ -76,10 +76,14 @@ class RegistrationController extends AbstractController
             $test_email = (new Email())
             ->from('simonchabrier@gmail.com') // for mail trap use a fake mail here
             ->to('simonchabrier@gmail.com') // for mail trap use a fake mail here
-            ->subject('Sujet')
-            ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...');
-            $mailer->send($test_email);
+            ->subject('Sujet') // for use gmail add : composer require symfony/google-mailer and configure it to use third party application
+            ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...'); 
+            $mailer->send($test_email); 
          
+            //* for use gmail add : composer require symfony/google-mailer and configure it to use third party application
+            //* https://support.google.com/a/answer/6260879?hl=fr#:~:text=Vous%20pouvez%20autoriser%20ou%20non,%40gmail.com%22).&text=Applications%20moins%20s%C3%A9curis%C3%A9es.,-Pour%20afficher%20l
+            //* update your env.local with : MAILER_DSN=gmail://monmail@gmail.com:MotdePasseSpécialFourniParGmail@default?verify_peer=0
+
             // here are instructions for autologin after registration
             return $userAuthenticator->authenticateUser(
                 $user,
