@@ -22,12 +22,14 @@
             <li><a class="dropdown-item" href="{{ path('app_forgot_password_request') }}">Renew Password</a></li>
           </ul>
         </li>
-
+        {% if app.user %} <!-- IMPORTANT - here, We must hide the login modal window if the user is already logged in so as not to have an error with the csrf token during a password update request if the user is already logged in. -->
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">LogOut</a></li>
+        {% else %}
          <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target=".Mylogin-modal">Modal Login</a><!-- call modal on : data-target=".login-modal  -->
-            {% include 'fragments/_modal_login.html.twig' %}<!-- include login form fragment inside modal content --> 
+            {% include 'fragments/_modal_login.html.twig' %}<!-- include login form fragment inside modal content -->
         </li>
-                   
+        {% endif %}         
       </ul><!-- nav items end --> 
     </div><!-- nav content end --> 
   </div><!-- container end -->
