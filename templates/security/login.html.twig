@@ -30,7 +30,7 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         {# If we use static login form page, we redirect the user on previous visited page after login for better UX
-           have a look in SecurityController.php line 23 - 25 - 33 and src/Security/UserAuthenticator.php on line 62 #}
+           have a look in SecurityController.php line 23 - 25 - 33 and UserAuthenticator.php on line 62 #}
         {% if custom_redirection is defined %}
         <input type="hidden" name="_target_path" value="{{ custom_redirection }}"/> 
         {% else %}
@@ -38,7 +38,7 @@
         {% endif %}
 
         {# See https://symfony.com/doc/current/security/remember_me.html 
-           have a look in src/Security/UserAuthenticator.php on line 45 #}
+           have a look in UserAuthenticator.php on line 45 #}
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" name="_remember_me"> Se souvenir de moi
