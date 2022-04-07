@@ -65,7 +65,7 @@ class RegistrationController extends AbstractController
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
             // here we use the template registration/confirmation_email.html.twig 
                 (new TemplatedEmail())
-                    ->from(new Address('simonchabrier@gmail.com', 'myStarterPack'))
+                    ->from(new Address('simonchabrier@gmail.com', 'myStarterPack')) // for mail trap use a fake mail here
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
@@ -74,8 +74,8 @@ class RegistrationController extends AbstractController
             // do anything else you need here, like send an email
             //* eg if you need to know new user register personalize this:
             $test_email = (new Email())
-            ->from('appMail@Appmail.fr')
-            ->to('simonchabrier@gmail.com')
+            ->from('simonchabrier@gmail.com') // for mail trap use a fake mail here
+            ->to('simonchabrier@gmail.com') // for mail trap use a fake mail here
             ->subject('Sujet')
             ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...');
             $mailer->send($test_email);
