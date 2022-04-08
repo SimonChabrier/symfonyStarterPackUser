@@ -1,4 +1,4 @@
-## Symfony starter pack to use User must have features
+##  Symfony starter pack including all essential features to work with connected users
 
 This starter pack is made to be ready to work quickly on symfony projects with using user must-have features. Fully functional and very easy to customize for your own use.
 
