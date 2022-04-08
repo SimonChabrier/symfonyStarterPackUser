@@ -25,7 +25,7 @@ bin/console d:m:m
 ### Symfony Functionnality :
 
 - User Login/logout. (on static page or modal window)
-- Redirect user on last page visited after login using the loginn static page
+- Redirect user on last page visited after login using the login static page
 - Stay on current page after login using modal.
 - Active Remember me.
 - User Reset Password.
