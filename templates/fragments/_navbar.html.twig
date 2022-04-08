@@ -14,7 +14,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% if app.user %}
-            <li><a class="dropdown-item" href="{{ path('app_logout') }}">LogOut</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+            <li><hr class="dropdown-divider"></li>
             {% else %}
             <li><a class="dropdown-item" href="{{ path('app_login') }}">Login</a></li>
             {% endif %}
@@ -32,7 +33,7 @@
           </ul>
         </li>
         {% if app.user %} <!-- IMPORTANT - here, We must hide the login modal window if the user is already logged in so as not to have an error with the csrf token during a password update request if the user is already logged in. -->
-            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">LogOut</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></li>
         {% else %}
          <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target=".Mylogin-modal">Modal Login</a><!-- call modal on : data-target=".login-modal  -->
