@@ -17,7 +17,7 @@ Make your .env.local and create your database:
 bin/console d:d:c
 ```
 
-Make the migration to build database content:
+Make the migration to build database:
 ```
 bin/console d:m:m
 ```
