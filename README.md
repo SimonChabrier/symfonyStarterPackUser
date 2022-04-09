@@ -22,6 +22,11 @@ Make the main migration to build database:
 bin/console d:m:m
 ```
 
+Make this command for generate your own app secret key and past result in your own .env or .env.local
+```
+bin/console regenerate-app-secret
+```
+
 ### Symfony Functionnality :
 
 - User Login/logout. (on static page or modal window)
