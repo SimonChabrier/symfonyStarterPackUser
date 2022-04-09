@@ -33,6 +33,8 @@ const app = {
                 // In rep front/home.html.twig -> We position ourselves in relation to:
                 const output = document.getElementById('mydiv');
                 // At each turn of the loop we render a card template hydrated with each object properties
+            
+            try{
 
                 if (response.results[i]['media'].length == []) {
                     // we filter the objects that have no images
@@ -72,8 +74,14 @@ const app = {
                         
                     `
                 }
+            }
+
+            catch(err){
+                console.log(err);
+            }
                 
             }
+
         })
     },
 };
