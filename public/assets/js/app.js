@@ -11,7 +11,7 @@ const app = {
             console.log('We are currently not on homepage, so we don\'t excute the request !')
 
         } else {
-            console.log('We are currently on homepage, so we excute call app.nty() and fetch datas !')
+            console.log('We are currently on homepage, so we call app.nty() and fetch New York Times datas !')
             app.nyt();
         }
     },
