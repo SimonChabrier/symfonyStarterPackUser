@@ -4,7 +4,7 @@ namespace App\Controller\Security;
 
 use App\Entity\User;
 use App\Security\EmailVerifier;
-use Symfony\Component\Mime\Email;
+use App\Service\AdminMailSend;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Security\UserAuthenticator;
@@ -38,7 +38,8 @@ class RegistrationController extends AbstractController
     UserAuthenticatorInterface $userAuthenticator,
     UserAuthenticator $authenticator,
     EntityManagerInterface $entityManager,
-    MailerInterface $mailer): Response
+    AdminMailSend $adminmail,
+    MailerInterface $mailer ): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -72,18 +73,14 @@ class RegistrationController extends AbstractController
             );
            
             // do anything else you need here, like send an email
-            //* eg if you need to know new user register personalize this:
-            $test_email = (new Email())
-            ->from('simonchabrier@gmail.com') // for mail trap use a fake mail here
-            ->to('simonchabrier@gmail.com') // for mail trap use a fake mail here
-            ->subject('Sujet') // for use gmail add : composer require symfony/google-mailer and configure it to use third party application
-            ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...'); 
-            $mailer->send($test_email); 
-         
+            //* eg if you need to know new user register personalize this in src/Service/AdminMailSend.php :
+
+            $adminmail->informAdminNewUserCreated($mailer);
+
             //* for use gmail make the command : composer require symfony/google-mailer 
-            //* and configure it to use third party application :
+            //* and configure Gmail to authorize the use of third party application :
             //* https://support.google.com/a/answer/6260879?hl=fr#:~:text=Vous%20pouvez%20autoriser%20ou%20non,%40gmail.com%22).&text=Applications%20moins%20s%C3%A9curis%C3%A9es.,-Pour%20afficher%20l
-            //* Fianlly, update your env.local with : MAILER_DSN=gmail://monmail@gmail.com:MotdePasseSpécialFourniParGmail@default?verify_peer=0
+            //* Finally, update your env.local with : MAILER_DSN=gmail://monmail@gmail.com:MotdePasseSpécialFourniParGmail@default?verify_peer=0
 
             // here are instructions for autologin after registration
             return $userAuthenticator->authenticateUser(
