@@ -24,6 +24,10 @@ h1 {
     text-transform: uppercase!important;
 } 
 
+h1.modalTitle {
+    padding-bottom: .8rem!important;
+}
+
 h2 {
     @extend .border-bottom;
     @extend .myPadAndMarg;

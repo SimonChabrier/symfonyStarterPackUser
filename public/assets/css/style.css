@@ -68,6 +68,10 @@ h1 {
   text-transform: uppercase !important;
 }
 
+h1.modalTitle {
+  padding-bottom: 0.8rem !important;
+}
+
 h2 {
   color: #666666;
   font-size: 1.7rem;
