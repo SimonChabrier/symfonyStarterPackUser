@@ -55,8 +55,9 @@ bin/console regenerate-app-secret
 - Full public rep with base directories : asssets --> css - images - js - default favicon.png
 - Default app.js with simple JS Vanilla ApiFecth exemple (Load on home).
 - Little JQuery toggle example to display/hide content you can use.
-- Header / Navbar / Slider / Footer include in _fragments
-- Main content template 
+- Navbar / Slider / Footer include in _fragments
+- Find main content template in templates/front/home.html.twig
+- Nav and Footer are included in base.html.twig
 - Well-sized default images for app social share
   
 ### Made with :
