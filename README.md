@@ -2,10 +2,17 @@
 
 This starter pack is made to be ready to work quickly on symfony projects with using user must-have features. Fully functional and very easy to customize for your own use.
 
-You can preview here:
+You can preview and try app here:
 
-https://starterpack.simschab.fr/
+>Identifier : user@user.fr
 
+>Password : password
+
+#### https://starterpack.simschab.fr/
+
+or of course create your own account ! 
+
+### How to deploy the app for your own use
 
 Download it and make a composer install.
 ```
