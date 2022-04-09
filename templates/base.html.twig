@@ -70,6 +70,7 @@
         <title>{% block title %}starterPackUser{% endblock %}</title>    
 </head>
     <body>  
+        {% set redirect = app.request.uri %}
         <!-- include nav bar -->
         {% include 'fragments/_navbar.html.twig' %}
         {% block body %}{% endblock %}
