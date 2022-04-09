@@ -57,6 +57,7 @@ bin/console regenerate-app-secret
 - Little JQuery toggle example to display/hide content you can use.
 - Header / Navbar / Slider / Footer include in _fragments
 - Main content template 
+- Well-sized default images for app social share
   
 ### Made with :
 
