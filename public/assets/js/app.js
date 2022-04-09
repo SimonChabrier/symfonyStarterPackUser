@@ -13,7 +13,7 @@ const app = {
     nyt: function (){
 
         if(window.location.href != window.location.origin + '/'){
-            console.log('Si on n\'est pas sur la home on n\'éxécute pas le script')
+            console.log('We are currently not on homepage, so we don\'t excute the request !')
         }     
         
         if (window.location.href === window.location.origin + '/'){
