@@ -59,7 +59,7 @@ bin/console regenerate-app-secret
 - Default App Icon
 - Reset Css stylesheet.
 - Sass starter integration easy to custom.
-- Full public rep with base directories : asssets --> css - fonts - images - js - default favicon.png
+- Full public rep with base directories : assets --> css - fonts - images - js - default favicon.png
 - Default app.js with simple JS Vanilla ApiFecth exemple (Load on home).
 - Little JQuery toggle example to display/hide content you can use.
 - Navbar / Slider / Footer include in _fragments
