@@ -28,28 +28,31 @@ bin/console d:m:m
 - Redirect user on last page visited after login using the login static page
 - Stay on current page after login using modal.
 - Active Remember me.
-- User Reset Password.
-- Send confirmation Email.
+- User Reset Password. (if logged out)
+- User Renew Password (if logged in)
+- Send register confirmation Email.
+- Send admin mail if new user registered (in Service)
 - Main Controller + Main Home.
 - Boostrap 5 forms style declared in twig.yaml
-- Locale set on Fr
-- Mail config for MailTrap in dev env.
-- Full Code comments & infos. 
+- Locale set on Fr 
+- Mail config for MailTrap in dev env ( + infos for Gmail use in comments).
 - Command to regenerate a app secret key
+- Full Code comments & infos. 
 
 ### Basics to work and personalize quickly :
 
-- Full head & Meta content ready to custom.
+- Full Head & Meta content ready to custom.
 - Boostrap 5 styles and Js.
 - Google font
-- App Icon
+- Default App Icon
 - Reset Css stylesheet.
 - Sass starter integration easy to custom.
-- Full public rep with base directories : asssets/css/images/js/+ default favicon.png
+- Full public rep with base directories : asssets --> css - images - js - default favicon.png
 - Default app.js with simple JS Vanilla ApiFecth exemple (Load on home).
 - Little JQuery toggle example to display/hide content you can use.
-- Header / Main / Footer
-
+- Header / Navbar / Slider / Footer include in _fragments
+- Main content template 
+  
 ### Made with :
 
 - Symfony Version 5.4.7
