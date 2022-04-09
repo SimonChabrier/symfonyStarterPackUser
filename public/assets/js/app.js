@@ -6,17 +6,18 @@ const app = {
     // Method init is called on DOMContentLoaded -> line 64.
     init: function() {
         console.log("init");
-        app.nyt();
+
+        if(window.location.href != window.location.origin + '/'){
+            console.log('We are currently not on homepage, so we don\'t excute the request !')
+
+        } else {
+            console.log('We are currently on homepage, so we excute call app.nty() and fetch datas !')
+            app.nyt();
+        }
     },
 
     // Api fecth on NewYorkTimes public endPoint
     nyt: function (){
-
-        if(window.location.href != window.location.origin + '/'){
-            console.log('We are currently not on homepage, so we don\'t excute the request !')
-        }     
-        
-        if (window.location.href === window.location.origin + '/'){
 
             let config = {
                 method: 'GET',
@@ -33,7 +34,7 @@ const app = {
             .then(function(response) {
             //loop on response for extract all Objects.
         
-                // replace 8 by esponse.results.length to dipslay all results 
+                // replace 8 by response.results.length to dipslay all results 
                 for (var i = 0; i < 8; i++){
                     
                     // In rep front/home.html.twig -> We position ourselves in relation to:
@@ -86,7 +87,6 @@ const app = {
                     }  
                 }//endfor
             })// end then
-        }// endif
     },
 
 };
