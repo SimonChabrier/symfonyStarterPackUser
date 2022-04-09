@@ -58,7 +58,7 @@ bin/console regenerate-app-secret
 - Navbar / Slider / Footer include in _fragments
 - Find main content template in templates/front/home.html.twig
 - Nav and Footer are included in base.html.twig
-- Well-sized default images for app social share
+- Well-sized default images for app social share in public/assets/images/socialShare
   
 ### Made with :
 
