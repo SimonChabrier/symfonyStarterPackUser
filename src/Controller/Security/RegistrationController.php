@@ -4,7 +4,7 @@ namespace App\Controller\Security;
 
 use App\Entity\User;
 use App\Security\EmailVerifier;
-use Symfony\Component\Mime\Email;
+use App\Service\AdminMailSend;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Security\UserAuthenticator;
@@ -38,7 +38,8 @@ class RegistrationController extends AbstractController
     UserAuthenticatorInterface $userAuthenticator,
     UserAuthenticator $authenticator,
     EntityManagerInterface $entityManager,
-    MailerInterface $mailer): Response
+    AdminMailSend $adminmail,
+    MailerInterface $mailer ): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -46,8 +47,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //! Add here all you need to do after user register form submit if you have personnal properties in your user entity
-            //! Eg : set slug 
+            //* Add here all you need to do after user register form submit if you have personnal properties in your user entity
             // $slug = $slugger->slug($newUserName);
             // $user->setSlug((strtolower($slug)));
 
@@ -66,21 +66,22 @@ class RegistrationController extends AbstractController
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
             // here we use the template registration/confirmation_email.html.twig 
                 (new TemplatedEmail())
-                    ->from(new Address('admin@mydomain.fr', 'myStarterPack'))
+                    ->from(new Address('simonchabrier@gmail.com', 'myStarterPack')) // for mail trap use a fake mail here
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
            
             // do anything else you need here, like send an email
-            //* eg if you need to know new user register personalize this:
-            $test_email = (new Email())
-            ->from('appMail@Appmail.fr')
-            ->to('myDestinationmail@Appmail.fr')
-            ->subject('Sujet')
-            ->text('Contenu du message que je veux recevoir quand un utilisateur s\'enregistre...');
-            $mailer->send($test_email);
-         
+            //* eg if you need to know new user register personalize this in src/Service/AdminMailSend.php :
+
+            $adminmail->informAdminNewUserCreated($mailer);
+
+            //* for use gmail make the command : composer require symfony/google-mailer 
+            //* and configure Gmail to authorize the use of third party application :
+            //* https://support.google.com/a/answer/6260879?hl=fr#:~:text=Vous%20pouvez%20autoriser%20ou%20non,%40gmail.com%22
+            //* Finally, update your env.local with : MAILER_DSN=gmail://monmail@gmail.com:MotdePasseSpécialFourniParGmail@default?verify_peer=0
+
             // here are instructions for autologin after registration
             return $userAuthenticator->authenticateUser(
                 $user,

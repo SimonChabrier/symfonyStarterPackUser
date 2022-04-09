@@ -38,6 +38,14 @@
   /* Legacy iOS */
 }
 
+label.form-check-label.required {
+  padding: 5px 0;
+}
+
+.pictContainer img {
+  padding: .5rem 0;
+}
+
 /*-------------------------------------------------------------------------------------*/
 /*  TYPO															   
 /*-------------------------------------------------------------------------------------*/
@@ -89,7 +97,7 @@ h5 {
   line-height: 1.2rem;
 }
 
-li {
+ol > li {
   font-size: .8rem;
   list-style-type: none;
   text-transform: uppercase;
@@ -102,7 +110,7 @@ p {
 }
 
 .nav-link {
-  padding-bottom: .1rem;
+  padding-bottom: .25rem;
 }
 
 a {
@@ -121,7 +129,7 @@ span {
 
 .bi {
   font-size: 1.2rem;
-  color: #0D5483 !important;
+  color: #0D5483;
 }
 
 .btn {

@@ -58,7 +58,6 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // here we activate custom redirection on last url visited after login.
-
         if($request->get('_target_path')) {
             return new RedirectResponse($request->get('_target_path'));
        }
