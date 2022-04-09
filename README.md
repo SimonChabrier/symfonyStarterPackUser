@@ -35,7 +35,7 @@ bin/console regenerate-app-secret
 - Active Remember me.
 - User Reset Password. (if logged out)
 - User Renew Password (if logged in)
-- Send register confirmation Email.
+- Send user email confirmation.
 - Send admin mail if new user registered (in Service)
 - Main Controller + Main Home.
 - Boostrap 5 forms style declared in twig.yaml
