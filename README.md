@@ -14,7 +14,7 @@ or of course create your own account !
 
 ### How to deploy the app for your own use
 
-Download it and make a composer install.
+Clone or Download it and make a composer install.
 ```
 composer install
 ```
