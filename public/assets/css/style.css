@@ -3,61 +3,39 @@
 /*-------------------------------------------------------------------------------------*/
 /* set in _colors.scss your colors var */
 /*-------------------------------------------------------------------------------------*/
-/*  RADIUS - PADDING - SPACES...												   
+/*  Fonts															   
 /*-------------------------------------------------------------------------------------*/
-.radius-100 {
-  border-radius: 100%;
-  border: 0.1rem solid #4087B6;
+/* poppins-200 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/poppins/poppins-v19-latin-200.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/poppins/poppins-v19-latin-200.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-v19-latin-200.woff2") format("woff2"), url("../fonts/poppins/poppins-v19-latin-200.woff") format("woff"), url("../fonts/poppins/poppins-v19-latin-200.ttf") format("truetype"), url("../fonts/poppins/poppins-v19-latin-200.svg#Poppins") format("svg");
+  /* Legacy iOS */
 }
 
-.border-bottom, h1, h2, h3, h4, h5 {
-  border-bottom: 0.05rem dotted #4087B6;
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/poppins/poppins-v19-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/poppins/poppins-v19-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-v19-latin-regular.woff2") format("woff2"), url("../fonts/poppins/poppins-v19-latin-regular.woff") format("woff"), url("../fonts/poppins/poppins-v19-latin-regular.ttf") format("truetype"), url("../fonts/poppins/poppins-v19-latin-regular.svg#Poppins") format("svg");
+  /* Legacy iOS */
 }
 
-.myPadAndMarg, h1, h2, h3, h4, h5, p {
-  padding: 0.25rem 0 !important;
-  margin: 0.25rem 0 !important;
-}
-
-.my1remBottomMarg, .container, h1 {
-  margin-bottom: 1rem !important;
-}
-
-.my1remTopMarg, .container {
-  margin-top: 1rem !important;
-}
-
-.mediumTransition, a:hover, .btn:hover, .fab:hover {
-  -webkit-transition: 1.5s !important;
-  transition: 1.5s !important;
-}
-
-/*-------------------------------------------------------------------------------------*/
-/*  LAYOUT													   
-/*-------------------------------------------------------------------------------------*/
-.card-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 30px;
-}
-
-.myInlineFlex {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  gap: 0.3rem;
-  color: #0D5483;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+/* poppins-600 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/poppins/poppins-v19-latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/poppins/poppins-v19-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-v19-latin-600.woff2") format("woff2"), url("../fonts/poppins/poppins-v19-latin-600.woff") format("woff"), url("../fonts/poppins/poppins-v19-latin-600.ttf") format("truetype"), url("../fonts/poppins/poppins-v19-latin-600.svg#Poppins") format("svg");
+  /* Legacy iOS */
 }
 
 label.form-check-label.required {
@@ -170,6 +148,64 @@ span {
 
 .fab:hover {
   color: #4087B6 !important;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  RADIUS - PADDING - SPACES...												   
+/*-------------------------------------------------------------------------------------*/
+.radius-100 {
+  border-radius: 100%;
+  border: 0.1rem solid #4087B6;
+}
+
+.border-bottom, h1, h2, h3, h4, h5 {
+  border-bottom: 0.05rem dotted #4087B6;
+}
+
+.myPadAndMarg, h1, h2, h3, h4, h5, p {
+  padding: 0.25rem 0 !important;
+  margin: 0.25rem 0 !important;
+}
+
+.my1remBottomMarg, h1, .container {
+  margin-bottom: 1rem !important;
+}
+
+.my1remTopMarg, .container {
+  margin-top: 1rem !important;
+}
+
+.mediumTransition, a:hover, .btn:hover, .fab:hover {
+  -webkit-transition: 1.5s !important;
+  transition: 1.5s !important;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  LAYOUT													   
+/*-------------------------------------------------------------------------------------*/
+.card-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+.myInlineFlex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 0.3rem;
+  color: #0D5483;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*-------------------------------------------------------------------------------------*/
