@@ -31,10 +31,10 @@ const app = {
             return response.json();
             })
 
-            .then(function(response) {
-            //loop on response for extract all Objects.
-        
-                // replace 8 by response.results.length to dipslay all results 
+            .then(function(data) {
+            //loop on data for extract all Objects.
+        console.log(data);
+                // replace 8 by data.results.length to dipslay all results 
                 for (var i = 0; i < 8; i++){
                     
                     // In rep front/home.html.twig -> We position ourselves in relation to:
@@ -43,7 +43,7 @@ const app = {
                 
                     try{
 
-                        if (response.results[i]['media'].length == []) {
+                        if (data.results[i]['media'].length == []) {
                             // we filter the objects that have no images
                             let picture = './assets/images/default_picture/default_pict.jpg'
 
@@ -53,11 +53,11 @@ const app = {
                                 <div class="card" style="width: 15rem;">
                                     <div class="card-body">
                                     <img src="${picture}" class="card-img-top" alt="" title="">
-                                    <h5 class="card-title">${response.results[i].title.slice(0, 20)} <a href="${response.results[i].url}"> ...</a></h5>
-                                    <h5><span class="badge bg-warning">${response.results[i].section}</span></h5>
-                                        <p class="card-text">${response.results[i].abstract.slice(0, 80)}<a href="${response.results[i].url}"> ...</a></p>
-                                        <p class="card-text"><small class="text-muted">Date : ${response.results[i].updated}</small></p>
-                                    <a href="${response.results[i].url}" class="btn btn-primary">Lire</a>  
+                                    <h5 class="card-title">${data.results[i].title.slice(0, 20)} <a href="${data.results[i].url}"> ...</a></h5>
+                                    <h5><span class="badge bg-warning">${data.results[i].section}</span></h5>
+                                        <p class="card-text">${data.results[i].abstract.slice(0, 80)}<a href="${data.results[i].url}"> ...</a></p>
+                                        <p class="card-text"><small class="text-muted">Date : ${data.results[i].updated}</small></p>
+                                    <a href="${data.results[i].url}" class="btn btn-primary">Lire</a>  
                                 </div>
                             </div> 
                                 
@@ -70,12 +70,12 @@ const app = {
                             <div class="card-group">
                                 <div class="card" style="width: 15rem;">
                                     <div class="card-body">
-                                    <img src="${response.results[i]['media'][0]['media-metadata'][2].url}" class="card-img-top" alt="${response.results[i]['media'][0].caption}" title="${response.results[i]['media'][0].caption}">
-                                    <h5 class="card-title">${response.results[i].title.slice(0, 20)} <a href="${response.results[i].url}"> ...</a></h5>
-                                    <h5><span class="badge bg-warning">${response.results[i].section}</span></h5>
-                                        <p class="card-text">${response.results[i].abstract.slice(0, 80)}<a href="${response.results[i].url}"> ...</a></p>
-                                        <p class="card-text"><small class="text-muted">Date : ${response.results[i].updated}</small></p>
-                                    <a href="${response.results[i].url}" class="btn btn-primary">Lire</a>  
+                                    <img src="${data.results[i]['media'][0]['media-metadata'][2].url}" class="card-img-top" alt="${data.results[i]['media'][0].caption}" title="${data.results[i]['media'][0].caption}">
+                                    <h5 class="card-title">${data.results[i].title.slice(0, 20)} <a href="${data.results[i].url}"> ...</a></h5>
+                                    <h5><span class="badge bg-warning">${data.results[i].section}</span></h5>
+                                        <p class="card-text">${data.results[i].abstract.slice(0, 80)}<a href="${data.results[i].url}"> ...</a></p>
+                                        <p class="card-text"><small class="text-muted">Date : ${data.results[i].updated}</small></p>
+                                    <a href="${data.results[i].url}" class="btn btn-primary">Lire</a>  
                                 </div>
                             </div> 
                                 
