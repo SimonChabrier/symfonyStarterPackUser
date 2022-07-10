@@ -16,9 +16,6 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
     {   
         // We create a custom redirection for user on last url visited before login action
-        // Eg: you ask user to be login to add a comment, so you may redirect user on this page
-        // just after loggin and not on main_home.
-
         // Here, we get the url user comes from.
         $targetOrigin = $request->headers->get('referer');
 

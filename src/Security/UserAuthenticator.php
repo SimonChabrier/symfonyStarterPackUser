@@ -32,21 +32,16 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        $email = $request->request->get('email', '');
 
+        $email = $request->request->get('email', '');
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
         return new Passport(
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
-            [
-                // add badge for activate remeber_me -> show security.yaml for config remember_me options
-                // here short tutorial in french https://www.youtube.com/watch?v=WX_H06gBvAs
+            [   
                 new RememberMeBadge(),
-               
-                // add csrf token
-                new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
-             
+                new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),          
             ]
         );
     }
@@ -57,7 +52,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // here we activate custom redirection on last url visited after login.
+        // Custom redirection on last url visited after login.
         if($request->get('_target_path')) {
             return new RedirectResponse($request->get('_target_path'));
        }

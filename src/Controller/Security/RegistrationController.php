@@ -44,12 +44,28 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //* Add here all you need to do after user register form submit if you have personnal properties in your user entity
-            // $slug = $slugger->slug($newUserName);
-            // $user->setSlug((strtolower($slug)));
+            if ($form->get('job')->getData() === 'administrateur') {
+                $user->setRoles(['ROLE_ADMINISTRATEUR']);
+                //need SUPER_ADMIN validation to be fully activated
+                $user->setStatus(false);
+            } 
+
+            if ($form->get('job')->getData() === 'moniteur') {
+                $user->setRoles(['ROLE_MONITEUR']) ;
+            } 
+
+            if ($form->get('job')->getData() === 'partenaire') {
+                $user->setRoles(['ROLE_PARTENAIRE']) ;
+            } 
+
+            if ($form->get('job')->getData() === 'travailleur') {
+                $user->setRoles(['ROLE_TRAVAILLEUR']) ;
+            } 
+
+            
 
             // encode the plain password
             $user->setPassword(
@@ -58,7 +74,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+    
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -82,7 +98,7 @@ class RegistrationController extends AbstractController
             //* https://support.google.com/a/answer/6260879?hl=fr#:~:text=Vous%20pouvez%20autoriser%20ou%20non,%40gmail.com%22
             //* Finally, update your env.local with : MAILER_DSN=gmail://monmail@gmail.com:MotdePasseSpécialFourniParGmail@default?verify_peer=0
 
-            // here are instructions for autologin after registration
+            // autologin after registration
             return $userAuthenticator->authenticateUser(
                 $user,
                 $authenticator,
@@ -98,7 +114,9 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
-    public function verifyUserEmail(Request $request, TranslatorInterface $translator, UserRepository $userRepository): Response
+    public function verifyUserEmail(Request $request,
+    TranslatorInterface $translator,
+    UserRepository $userRepository ): Response
     {
         $id = $request->get('id');
 
@@ -111,19 +129,17 @@ class RegistrationController extends AbstractController
         if (null === $user) {
             return $this->redirectToRoute('app_register');
         }
-
-        // validate email confirmation link, sets User::isVerified=true and persists
+        
         try {
-            $this->emailVerifier->handleEmailConfirmation($request, $user);
+            $this->emailVerifier->handleEmailConfirmation($request, $user); 
+            // validate email confirmation link, sets User::isVerified=true and persists
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $translator->trans($exception->getReason(), [], 'VerifyEmailBundle'));
-
             return $this->redirectToRoute('app_register');
         }
 
-        // We redirect on home page after email verification and add dispay a flash message
+        // Redirect User after email verification + flash message
         $this->addFlash('isVerified', 'Votre email est bien vérifié !');
-
         return $this->redirectToRoute('app_home');
     }
 }

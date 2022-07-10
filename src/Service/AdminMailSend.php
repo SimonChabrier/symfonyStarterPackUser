@@ -22,4 +22,5 @@ class AdminMailSend
         ->text('Un nouvel utilisateur vient de créer un compte !'); 
         $mailer->send($new_user_register);
     }
+
 }
